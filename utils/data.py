@@ -35,8 +35,6 @@ def get_loaders(domain, config):
 
     """
 
-    prune_domainnet(config)
-    
     full_dataset = get_dataset(domain, config)
     retain_dataset = filter_dataset(full_dataset, domain, config['forget_classes'], config, exclude=True)
 
@@ -143,59 +141,3 @@ def get_subset(dataset, config):
     subset = Subset(dataset, subset_indices)
 
     return subset
-
-def prune_domainnet(config):
-    """
-    Convert to DomainNet-126    
-    """ 
-
-    if config['dataset'] != 'DomainNet':
-        return
-
-    unreq_domains = {'infograph', 'quickdraw'}
-
-    req_domains = {'clipart', 'painting', 'sketch', 'real'}
-
-    unreq_classes = {'rollerskates', 'frying_pan', 'van', 'tractor', 'ocean', 'belt', 'cooler', 
-                     'swing_set', 'roller_coaster', 'brain', 'triangle', 'waterslide', 'jail', 
-                     'The_Mona_Lisa', 'octopus', 'tree', 'lollipop', 'sweater', 'beach', 'apple', 
-                     'steak', 'flying_saucer', 't-shirt', 'eraser', 'paintbrush', 'door', 'octagon', 
-                     'hamburger', 'cloud', 'tornado', 'stereo', 'syringe', 'wristwatch', 'smiley_face', 
-                     'wine_glass', 'hospital', 'animal_migration', 'paper_clip', 'bicycle', 'garden', 
-                     'hockey_puck', 'washing_machine', 'parrot', 'scorpion', 'hourglass', 'diving_board', 
-                     'fan', 'house_plant', 'megaphone', 'zigzag', 'sock', 'book', 'camouflage', 'floor_lamp', 
-                     'leg', 'hot_air_balloon', 'church', 'envelope', 'rain', 'birthday_cake', 
-                     'remote_control', 'owl', 'sun', 'motorbike', 'hedgehog', 'snorkel', 'spreadsheet',
-                       'paint_can', 'ladder', 'skull', 'flip_flops', 'hockey_stick', 'knee', 'beard', 
-                       'tent', 'baseball_bat', 'ambulance', 'skyscraper', 'bush', 'snowman', 'passport', 
-                       'saw', 'lighter', 'telephone', 'stitches', 'snowflake', 'snail', 'hot_dog', 
-                       'drill', 'sink', 'police_car', 'shovel', 'basketball', 'broom', 'trumpet', 
-                       'windmill', 'microwave', 'stop_sign', 'pond', 'dresser', 'cookie', 'angel', 
-                       'boomerang', 'mailbox', 'toaster', 'toothpaste', 'parachute', 'calendar', 'bread', 
-                       'car', 'donut', 'face', 'bandage', 'traffic_light', 'diamond', 'map', 'necklace', 
-                       'couch', 'flashlight', 'barn', 'firetruck', 'lighthouse', 'pickup_truck', 'hexagon', 
-                       'bowtie', 'pliers', 'spoon', 'hurricane', 'wine_bottle', 'marker', 'square', 'moustache', 
-                       'violin', 'sword', 'toothbrush', 'tooth', 'harp', 'pizza', 'popsicle', 'golf_club', 
-                       'picture_frame', 'arm', 'moon', 'mouth', 'light_bulb', 'suitcase', 'bench', 'stove', 
-                       'sailboat', 'eye', 'piano', 'airplane', 'bracelet', 'pool', 'yoga', 'oven', 'circle', 
-                       'key', 'clock', 'radio', 'knife', 'sleeping_bag', 'ice_cream', 'crayon', 'cup', 'bridge', 
-                       'fire_hydrant', 'stethoscope', 'tennis_racquet', 'pants', 'wheel', 'clarinet', 'underwear', 
-                       'binoculars', 'mermaid', 'bed', 'garden_hose', 'bat', 'squiggle', 'toilet', 'hot_tub', 'hat', 
-                       'nose', 'line', 'postcard', 'school_bus', 'shorts', 'keyboard', 'bucket', 'soccer_ball', 'lightning', 
-                       'hand', 'dishwasher', 'crown', 'fireplace', 'elbow', 'sandwich', 'star', 'baseball', 'stairs', 'mountain', 
-                       'rake', 'shark', 'campfire', 'backpack', 'rainbow', 'house', 'ear', 'river', 'nail', 'bulldozer', 'grass', 
-                       'trombone', 'palm_tree', 'finger', 'jacket', 'headphones', 'matches', 'scissors'}
-    
-    root_path = os.path.join(config['data_path'], 'DomainNet')
-    
-    for domain in unreq_domains:
-        path = os.path.join(root_path, domain)
-        if os.path.exists(path):
-            shutil.rmtree(path)
-
-    for domain in req_domains:
-        for class_ in unreq_classes:
-            path = os.path.join(root_path, domain, class_)
-            if os.path.exists(path):
-                shutil.rmtree(path)
-

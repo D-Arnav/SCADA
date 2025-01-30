@@ -27,9 +27,9 @@ Alternatively, if you already have the dataset stored elsewhere, update the `dat
 
 ---
 
-## Running DASEC Unlearning on OfficeHome
+## Running DASEC Unlearning Methods on the OfficeHome Dataset
 
-### Running Minimax Unlearning
+### Running the Proposed Method: Minimax Unlearning
 To run Minimax Unlearning for classes `{1,2,3}` on **OfficeHome (Art → Product)**, use the following command:
 
 ```bash

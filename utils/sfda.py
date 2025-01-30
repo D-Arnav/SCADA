@@ -125,7 +125,6 @@ class SFDA2:
         self.iter_num += 1
 
         return loss_pos + loss_neg + (self.alpha_1 * loss_ifa) + (self.alpha_2 * loss_fd)
-        # return loss_pos + loss_neg + (self.alpha_1 * loss_ifa) #+ (self.alpha_2 * loss_fd)
 
 
     def update_CV(self, features, labels):
