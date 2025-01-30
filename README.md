@@ -3,7 +3,7 @@
 ## Setup
 
 ### Requirements
-Ensure you have Python **3.12.2** installed. You can install the necessary dependencies using:
+Ensure you have Python **3.12.2** installed.
 
 #### Required Packages:
 ```txt
