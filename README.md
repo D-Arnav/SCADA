@@ -49,23 +49,3 @@ To run baseline models, execute:
 ```bash
 bash baselines.sh
 ```
-
----
-
-## Citation
-If you use this code in your research, please consider citing our ICML submission:
-
-```bibtex
-@inproceedings{your_icml_paper,
-  author    = {Your Name and Co-authors},
-  title     = {Unlearning Source Exclusive Classes in Domain Adaptation via Adversarial Optimization},
-  booktitle = {International Conference on Machine Learning (ICML)},
-  year      = {2025},
-}
-```
-
----
-
-## License
-This project is licensed under [MIT License](LICENSE).
-
