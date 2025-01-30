@@ -724,30 +724,3 @@ def predict_forget_classes_advanced(classifier, target_dl, config, exclude=[], N
     print(mean_output)
     
     return predicted_classes
-
-
-def current_forget_acc(target_classifier, target_forget_dl, forget_classes_test, config):
-    """
-    Calculates Current Forget Acc in Continual Unlearning Settings
-    """
-    
-    
-    target_classifier.eval()
-    forget_classwise_correct = {i: 0 for i in config['forget_classes_all']}
-    forget_classwise_total = {i: 0 for i in config['forget_classes_all']}
-    with torch.no_grad():
-        for (images, labels) in target_forget_dl:
-            images, labels = images.cuda(), labels.cuda()
-            logits = target_classifier(images)
-
-            for i in range(labels.size(0)): 
-                forget_classwise_correct[labels[i].item()] += (logits.argmax(dim=1)[i] == labels[i]).item()
-                forget_classwise_total[labels[i].item()] += 1
-
-    current_correct, current_total = 0, 9
-    for class_ in forget_classes_test:
-        current_correct += forget_classwise_correct[class_]
-        current_total += forget_classwise_total[class_]
-    
-    return 100 * current_correct / current_total
-
