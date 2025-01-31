@@ -30,14 +30,14 @@ Alternatively, if you already have the dataset stored elsewhere, update the `dat
 ## Running DASEC Unlearning Methods on the OfficeHome Dataset
 
 ### Running the Proposed Method
-To run the proposed unlearning for classes `{1,2,3}` on **OfficeHome (Art → Product)**, use the following command:
+To run the proposed method for classes `{1,2,3}` on a single OfficeHome Task, say **(Art → Product)**, use the following command:
 
 ```bash
 python main.py -d OfficeHome -s Art -t Product -m minimax -fc 1,2,3
 ```
 
-### Running the Proposed Method for All Tasks
-To run the Minimax Unlearning method across all tasks, execute:
+### Running the proposed method for All Tasks
+To run the proposed method for classes `{1,2,3}` across all tasks in OfficeHome, execute:
 
 ```bash
 bash minimax.sh
