@@ -27,7 +27,7 @@ Alternatively, if you already have the dataset stored elsewhere, update the `dat
 
 ---
 
-## Running DASEC Unlearning Methods on the OfficeHome Dataset
+## Running SCADA Unlearning Methods on the OfficeHome Dataset
 
 ### Running the Proposed Method
 To run the proposed method for classes `{1,2,3}` on a single OfficeHome Task, say **(Art → Product)**, use the following command:
