@@ -42,10 +42,3 @@ To run the proposed method for classes `{1,2,3}` across all tasks in OfficeHome,
 ```bash
 bash minimax.sh
 ```
-
-### Running Baseline Methods
-To run baseline models, execute:
-
-```bash
-bash baselines.sh
-```
