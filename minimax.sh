@@ -1,4 +1,4 @@
-source activate MUenv
+conda activate scada
 
 
 # OfficeHome Multi-Class SCADA-UL for C_F = {1,2,3}
