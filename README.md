@@ -1,4 +1,5 @@
 # $\oslash$ Source Models Leak What They Shouldn’t $\nrightarrow$: Unlearning Zero-Shot Transfer in Domain Adaptation Through Adversarial Optimization
+## [📄 CVPR 2026](https://arxiv.org/abs/2604.08238)
 
 ## Setup
 
